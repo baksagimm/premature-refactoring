@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<body style="font-size: 20px;">
+    <h1>Example of procedual coding</h1>
+    <div style="padding: 1em;">
+        <h2>Objective A: Print "Hello Kyubi" x2 times</h2>
+        <pre style="background-color: antiquewhite;padding: 1em;">
+            function executeA() {
+                // procedual coding
+                let msg1 = document.createElement('div');
+                msg1.textContent = 'Hello Kyubi!';
+                print_el_a.append(msg1);
+        
+                let msg2 = document.createElement('div');
+                msg2.textContent = 'Hello Kyubi!';
+                print_el_a.append(msg2);
+            }
+        </pre>
+        <br>
+        <button style="font-size: 32px;" onclick="executeA()">executeA()</button>
+
+        <br>
+        <div id="print_el_a"></div>
+        <br>
+
+        <hr>
+
+        <h2>Objective B: Change it to "Hi Gyubi" x2 times with second line green colored.</h2>
+        <pre style="background-color: antiquewhite;padding: 1em;">
+            function executeB() {
+                // procedual coding
+                let msg1 = document.createElement('div');
+                msg1.textContent = 'Hi Kyubi!';
+                print_el_b.append(msg1);
+        
+                let msg2 = document.createElement('div');
+                msg2.textContent = 'Hi Kyubi!';
+                msg2.style.color = 'green';
+                print_el_b.append(msg2);
+            }
+        </pre>
+        <br>
+        <button style="font-size: 32px;" onclick="executeB()">executeB()</button>
+
+        <br>
+        <div id="print_el_b"></div>
+        <br>
+    </div>
+    <a style="font-size: 48px;" href="final-example.html">NEXT PAGE</a>
+</body>
+
+<script>
+    function executeA() {
+        // procedual coding
+        let msg1 = document.createElement('div');
+        msg1.textContent = 'Hello Kyubi!';
+        print_el_a.append(msg1);
+
+        let msg2 = document.createElement('div');
+        msg2.textContent = 'Hello Kyubi!';
+        print_el_a.append(msg2);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // fixed version
+
+    function executeB() {
+        // procedual coding
+        let msg1 = document.createElement('div');
+        msg1.textContent = 'Hi Kyubi!';
+        print_el_b.append(msg1);
+
+        let msg2 = document.createElement('div');
+        msg2.textContent = 'Hi Kyubi!';
+        msg2.style.color = 'green';
+        print_el_b.append(msg2);
+    }
+
+</script>

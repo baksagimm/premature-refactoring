@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<body style="font-size: 20px;">
+    <h1>Bad example of premature refactoring</h1>
+    <div style="padding: 1em;">
+        <h2>Objective A: Print "Hello Kyubi" x2 times</h2>
+        <pre style="background-color: antiquewhite;padding: 1em;">
+            function createHelloMsg(name) {
+                return 'Hello ' + name;
+            }
+        
+            function createMsgElement(msg, parent, repeat = 1) {
+                while (repeat--) {
+                    let el = document.createElement('div');
+                    el.textContent = msg;
+                    parent.append(el);
+                }
+            }
+        
+            function executeA() {
+                createMsgElement(createHelloMsg('Kyubi'), print_el_a, 2);
+            }
+        </pre>
+        <br>
+        <pre>
+            Thoughts on the developer at this point:
+
+                - I can change the name easily
+                - I can change the repeated time easily
+                - I modularized it so it can be used else where
+                - I'm prepared for any changes that my design team might give me.
+            
+        </pre>
+        <button style="font-size: 32px;" onclick="executeA()">executeA()</button>
+
+        <br>
+        <div id="print_el_a"></div>
+        <br>
+
+        <hr>
+
+        <h2>Objective B: Change it to "Hi Kyubi" x2 times with second line green colored.</h2>
+        <pre>
+            As you see, things don't go as you plan.
+            This small changes caused the programmer to end up with more lines of code.
+            
+            See below.
+        </pre>
+        <pre style="background-color: antiquewhite;padding: 1em;">
+            function createHelloMsgFixed(name, prefix) {
+                return (prefix || 'Hello') + ' ' + name;
+            }
+        
+            function createMsgElementFixed(msg, parent, repeat = 1, colorIndex) {
+                while (repeat--) {
+                    let el = document.createElement('div');
+                    el.textContent = msg;
+                    if (colorIndex) {
+                        if (colorIndex[repeat]) {
+                            el.style.color = colorIndex[repeat];
+                        }
+                    }
+                    parent.append(el);
+                }
+            }
+        
+            function executeB() {
+                createMsgElementFixed(createHelloMsgFixed('Kyubi', 'Hi'), print_el_b, 2, { 0: 'green' });
+            }
+        </pre>
+        <br>
+        <pre>
+            Thoughts on the developer at this point:
+
+                - I need to change the structure of the code.
+                - Our design team dosen't know anything about programming.
+                - Our team needs a senior designer who may have worked in big companies like g**gl.
+        </pre>
+        <button style="font-size: 32px;" onclick="executeB()">executeB()</button>
+
+        <br>
+        <div id="print_el_b"></div>
+        <br>
+    </div>
+    <a style="font-size: 48px;" href="good-example.html">NEXT PAGE</a>
+</body>
+
+<script>
+    // Objective A
+    function createHelloMsg(name) {
+        return 'Hello ' + name;
+    }
+
+    function createMsgElement(msg, parent, repeat = 1) {
+        while (repeat--) {
+            let el = document.createElement('div');
+            el.textContent = msg;
+            parent.append(el);
+        }
+    }
+
+    function executeA() {
+        createMsgElement(createHelloMsg('Kyubi'), print_el_a, 2);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // uhoh... here's the fixed version of the new changes...
+
+    function createHelloMsgFixed(name, prefix) {
+        return (prefix || 'Hello') + ' ' + name;
+    }
+
+    function createMsgElementFixed(msg, parent, repeat = 1, colorIndex) {
+        while (repeat--) {
+            let el = document.createElement('div');
+            el.textContent = msg;
+            if (colorIndex) {
+                if (colorIndex[repeat]) {
+                    el.style.color = colorIndex[repeat];
+                }
+            }
+            parent.append(el);
+        }
+    }
+
+    function executeB() {
+        createMsgElementFixed(createHelloMsgFixed('Kyubi', 'Hi'), print_el_b, 2, { 0: 'green' });
+    }
+
+</script>

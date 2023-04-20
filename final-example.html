@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<body style="font-size: 20px;">
+    <h1>Final example</h1>
+    <pre>
+        It is ok to modularize, refactor your code later.
+        Also, repeated code is fine too.
+
+        Try to code procedualy until you get the clear picture on how your code structure should be.
+
+        Now look at the final code below, which may have refactored from the procedual version of the code.
+    </pre>
+    <div style="padding: 1em;">
+        <h2>Objective B: Print "Hi Kyubi" x2 times with second line green colored.</h2>
+        <pre style="background-color: antiquewhite;padding: 1em;">
+            function createDiv(msg) {
+                let div = document.createElement('div');
+                div.textContent = msg;
+                return div;
+            }
+        
+            function executeB() {
+                print_el_b.append(createDiv('Hi Kyubi!'));
+        
+                let green = createDiv('Hi Kyubi!');
+                green.style.color = 'green';
+                print_el_b.append(green);
+            }
+        </pre>
+        <button style="font-size: 32px;" onclick="executeB()">executeB()</button>
+
+        <br>
+        <div id="print_el_b"></div>
+        <br>
+    </div>
+</body>
+
+<script>
+    ////////////////////////////////////////////////////////////////////////////////
+    // final version
+    function createDiv(msg) {
+        let div = document.createElement('div');
+        div.textContent = msg;
+        return div;
+    }
+
+    function executeB() {
+        print_el_b.append(createDiv('Hi Kyubi!'));
+
+        let green = createDiv('Hi Kyubi!');
+        green.style.color = 'green';
+        print_el_b.append(green);
+    }
+
+</script>
